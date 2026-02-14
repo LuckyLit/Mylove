@@ -9,13 +9,17 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background: linear-gradient(45deg, #ff4e8a, #ff99ac);
-            overflow: hidden;
             color: white;
+            overflow-x: hidden; /* allow vertical scroll */
         }
 
         h1 {
             margin-top: 100px;
             font-size: 30px;
+        }
+
+        h2 {
+            margin-top: 20px;
         }
 
         button {
@@ -31,9 +35,10 @@
         }
 
         .heart {
-            position: absolute;
+            position: fixed; /* fixed so it floats over scroll */
             font-size: 20px;
             animation: float 6s linear infinite;
+            pointer-events: none; /* so clicks go through hearts */
         }
 
         @keyframes float {
@@ -71,6 +76,7 @@
 <script>
     function showMessage() {
         document.getElementById("message").style.display = "block";
+        window.scrollTo({ top: document.getElementById("message").offsetTop, behavior: 'smooth' });
     }
 
     function yesClick() {
