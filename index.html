@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jessica Tsebe ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff4e8a, #ff99ac);
+            overflow: hidden;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 100px;
+            font-size: 30px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: white;
+            color: #ff4e8a;
+            font-weight: bold;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        #message {
+            display: none;
+            margin-top: 50px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Jessica Tsebe ❤️</h1>
+<h2>You are the most beautiful part of my life 🌹</h2>
+
+<button onclick="showMessage()">Open Your Surprise 💌</button>
+
+<div id="message">
+    <h2>Jessica ❤️</h2>
+    <p>
+        From the moment you walked into my life,
+        everything became brighter.
+        Your smile makes my heart race,
+        your laugh makes my world complete.
+    </p>
+
+    <h2>Will you be my Valentine? 💘</h2>
+    <button onclick="yesClick()">YES ❤️</button>
+</div>
+
+<script>
+    function showMessage() {
+        document.getElementById("message").style.display = "block";
+    }
+
+    function yesClick() {
+        document.body.innerHTML = "<h1>Jessica ❤️ You just made me the happiest person alive 😍</h1>";
+    }
+
+    function createHearts() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHearts, 300);
+</script>
+
+</body>
+</html>
